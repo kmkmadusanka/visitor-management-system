@@ -1,0 +1,124 @@
+.custom-logo {
+  height: 3.125rem;
+}
+
+.nav-border {
+  border: 1px solid #d1d9e6;
+  opacity: 1;
+}
+
+.user-icon-styles {
+  width: 1.875rem;
+  height: 1.875rem;
+}
+
+.nav-icon-styles {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.search-icon-styles {
+  width: 1rem;
+  height: 1rem;
+}
+
+.search-box {
+  width: 20rem !important;
+  margin-left: 7.5rem !important;
+}
+
+.hamburger-icon {
+  width: 1.8rem;
+  height: 1.8rem;
+}
+
+.carrot-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.carrot-button {
+  background-color: white !important;
+  // border: 1px solid #cad1d7;
+}
+
+@media screen and (max-width: 1920px) {
+  .search-box {
+    margin-left: 8.5rem !important;
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .search-box {
+    margin-left: 7.5rem !important;
+  }
+}
+
+@media screen and (max-width: 1110px) {
+  .search-box {
+    margin-left: 5rem !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .user-icon-styles {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .nav-icon-styles {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .custom-logo {
+    height: 2.4rem;
+  }
+
+  .carrot-button {
+    padding-right: 0px;
+  }
+
+  .search-box {
+    width: 18rem !important;
+    margin-left: 0rem !important;
+  }
+}
+
+@media screen and (max-width: 411px) {
+  .search-box {
+    width: 10rem !important;
+    margin-left: 0rem !important;
+  }
+
+  .search-icon-styles {
+    width: 0.8rem;
+    height: 0.8rem;
+  }
+
+  .carrot-icon {
+    width: 0.8rem;
+    height: 0.8rem;
+  }
+  .custom-logo {
+    height: 2rem;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .search-box {
+    width: 8rem !important;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .search-box {
+    width: 7rem !important;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .search-box {
+    width: 5rem !important;
+  }
+}

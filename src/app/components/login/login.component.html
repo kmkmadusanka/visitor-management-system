@@ -1,0 +1,100 @@
+<main>
+  <nav
+    id="navbar-main"
+    class="
+      navbar navbar-main navbar-expand-lg navbar-transparent navbar-light
+      headroom headroom--top headroom--pinned
+    "
+  >
+    <div class="container">
+      <a class="navbar-brand" [routerLink]="['/home']">
+        <img class="login-icon" src="assets/img/brand/dummy_logo.png" />
+      </a>
+    </div>
+  </nav>
+
+  <section class="section section-shaped section-lg custom-background">
+    <div class="shape bg-gradient-default"></div>
+    <div class="container pt-lg-md">
+      <div class="row justify-content-center">
+        <div class="col-lg-5 custom-padding">
+          <div class="card bg-secondary shadow border-0">
+            <div class="card-body px-lg-5 py-lg-5">
+              <div class="mb-4">
+                <h2 class="mb-0">Hi!</h2>
+                Welcome to #SYSTEM
+              </div>
+              <form role="form" [formGroup]="rForm">
+                <div class="form-group mb-3">
+                  <div class="input-group input-group-alternative">
+                    <input
+                      class="form-control"
+                      placeholder="Phone Number"
+                      type="text"
+                      formControlName="phone"
+                    />
+                  </div>
+                  <div
+                    class="error-msg"
+                    *ngIf="
+                      !rForm.controls['phone'].valid &&
+                      rForm.controls['phone'].touched
+                    "
+                  >
+                    <small
+                      >Valid mobile phone number is
+                      <strong>required</strong>
+                    </small>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group input-group-alternative">
+                    <input
+                      class="form-control"
+                      placeholder="Password"
+                      type="password"
+                      formControlName="password"
+                    />
+                  </div>
+                  <div
+                    class="error-msg"
+                    *ngIf="
+                      !rForm.controls['password'].valid &&
+                      rForm.controls['password'].touched
+                    "
+                  >
+                    <small>Password is <strong>required</strong></small>
+                  </div>
+                </div>
+
+                <div class="d-flex align-item-end justify-content-end">
+                  <button
+                    (click)="loginUser()"
+                    class="btn btn-primary mt-4 mb-0"
+                    [disabled]="!rForm.valid"
+                    type="submit"
+                    class="btn btn-primary mt-4 mb-2"
+                  >
+                    Sign in
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-6">
+              <!-- <a href="javascript:void(0)" class="text-light">
+                <small>Forgot password?</small>
+              </a> -->
+            </div>
+            <div class="col-6 text-right">
+              <a [routerLink]="['/signup']" class="text-light">
+                <small>Don't have an account? Sign up</small>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

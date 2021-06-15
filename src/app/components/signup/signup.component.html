@@ -1,0 +1,201 @@
+<main>
+  <nav
+    id="navbar-main"
+    class="
+      navbar navbar-main navbar-expand-lg navbar-transparent navbar-light
+      headroom headroom--top headroom--pinned
+    "
+  >
+    <div class="container">
+      <a class="navbar-brand" [routerLink]="['/home']">
+        <img class="login-icon" src="assets/img/brand/dummy_logo.png" />
+      </a>
+    </div>
+  </nav>
+
+  <section class="section section-shaped section-lg custom-background">
+    <div class="shape bg-gradient-default"></div>
+    <div class="container pt-lg-md">
+      <div class="row justify-content-center">
+        <div class="col-lg-5 custom-padding">
+          <div class="card bg-secondary shadow border-0">
+            <div class="card-body px-lg-5 py-lg-5">
+              <div class="mb-4">
+                <h2 class="mb-0">Hi!</h2>
+                Welcome to #SYSTEM
+              </div>
+              <form role="form" [formGroup]="rForm">
+                <div class="form-group mb-3">
+                  <div class="col-12 px-0 mx-0 d-flex flex-direction-row">
+                    <div class="col-6 pr-1 pl-0">
+                      <div class="input-group input-group-alternative">
+                        <input
+                          class="form-control"
+                          placeholder="First Name *"
+                          type="text"
+                          formControlName="firstName"
+                        />
+                      </div>
+                      <div
+                        class="error-msg"
+                        *ngIf="
+                          !rForm.controls['firstName'].valid &&
+                          rForm.controls['firstName'].touched
+                        "
+                      >
+                        <small>First name <strong>required</strong> </small>
+                      </div>
+                    </div>
+                    <div class="col-6 pl-1 pr-0">
+                      <div class="input-group input-group-alternative">
+                        <input
+                          class="form-control"
+                          placeholder="Last Name"
+                          type="text"
+                          formControlName="lastName"
+                        />
+                      </div>
+                      <div
+                        class="error-msg"
+                        *ngIf="
+                          !rForm.controls['lastName'].valid &&
+                          rForm.controls['lastName'].touched
+                        "
+                      >
+                        <small>Second name <strong>required</strong> </small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group mb-3">
+                  <div class="input-group input-group-alternative">
+                    <input
+                      class="form-control"
+                      placeholder="Phone Number *"
+                      type="text"
+                      formControlName="phone"
+                    />
+                  </div>
+                  <div
+                    class="error-msg"
+                    *ngIf="
+                      !rForm.controls['phone'].valid &&
+                      rForm.controls['phone'].touched
+                    "
+                  >
+                    <small
+                      >Valid mobile phone number is
+                      <strong>required</strong>
+                    </small>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group input-group-alternative">
+                    <input
+                      class="form-control"
+                      placeholder="Password *"
+                      type="password"
+                      formControlName="password"
+                    />
+                  </div>
+                  <div
+                    class="error-msg"
+                    *ngIf="
+                      !rForm.controls['password'].valid &&
+                      rForm.controls['password'].touched
+                    "
+                  >
+                    <div *ngIf="rForm.controls['password'].errors.required">
+                      <small>Password is <strong>required</strong></small>
+                    </div>
+                    <div *ngIf="rForm.controls['password'].errors.minlength">
+                      <small
+                        >Password needs to have at least
+                        <strong>8</strong> characters.</small
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group input-group-alternative">
+                    <input
+                      class="form-control"
+                      placeholder="Confirm Password *"
+                      type="password"
+                      formControlName="confirmPassword"
+                    />
+                  </div>
+                  <div
+                    class="error-msg"
+                    *ngIf="
+                      !rForm.controls['confirmPassword'].valid &&
+                      rForm.controls['confirmPassword'].touched
+                    "
+                  >
+                    <small
+                      >Confirm password <strong>not match </strong> with the
+                      password
+                    </small>
+                  </div>
+                </div>
+                <div class="row my-4">
+                  <div class="col-12">
+                    <div
+                      class="
+                        custom-control
+                        custom-control-alternative
+                        custom-checkbox
+                      "
+                    >
+                      <input
+                        class="custom-control-input"
+                        id="customCheckRegister"
+                        type="checkbox"
+                        formControlName="agreement"
+                      />
+                      <label
+                        class="custom-control-label"
+                        for="customCheckRegister"
+                      >
+                        <span
+                          >I agree with the
+                          <a href="javascript:void(0)">Privacy Policy</a>
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="d-flex align-item-end justify-content-end">
+                  <button
+                    type="button"
+                    (click)="registerUser()"
+                    class="btn btn-primary mt-4 mb-0"
+                    [disabled]="
+                      !rForm.valid || !rForm.controls['agreement'].value
+                    "
+                    type="submit"
+                  >
+                    Sign in
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-6">
+              <!-- <a href="javascript:void(0)" class="text-light">
+                <small>Forgot password?</small>
+              </a> -->
+            </div>
+            <div class="col-6 text-right">
+              <a [routerLink]="['/login']" class="text-light">
+                <small>Have an account? Sign in</small>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

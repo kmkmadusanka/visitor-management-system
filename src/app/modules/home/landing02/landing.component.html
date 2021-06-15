@@ -1,0 +1,259 @@
+<main>
+  <div class="position-relative">
+    <!-- shape Hero -->
+    <section class="section-shaped pb-250">
+      <!-- SVG separator -->
+      <div class="separator separator-bottom separator-skew">
+        <svg
+          x="0"
+          y="0"
+          viewBox="0 0 2560 100"
+          preserveAspectRatio="none"
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
+        </svg>
+      </div>
+    </section>
+  </div>
+
+  <section class="section section-lg pt-lg-0 mt--200">
+    <div class="container">
+      <div>
+        <div class="col-md-12 mobile-padding px-0">
+          <div class="row">
+            <div class="col-md-12 px-0">
+              <div class="col-md-12 mb-4 bubble-screen">
+                <div
+                  class="row py-2 text-center"
+                  style="flex-wrap: nowrap; overflow-x: auto"
+                >
+                  <div
+                    class="col-sm-2 col-3"
+                    *ngFor="let item of specialization"
+                  >
+                    <img
+                      *ngIf="item.image === undefined || item.image === null"
+                      src="./assets/img/icons/common/healthcare.svg"
+                      class="rounded spec-image-styles shadow"
+                      data-toggle="tooltip"
+                      [title]="item.name"
+                    />
+                    <!-- src="{{ imgPath }}100x100/{{ item.image }}" -->
+                    <img
+                      (click)="filterSpecialization(item.id)"
+                      *ngIf="item.image !== undefined && item.image !== null"
+                      src="{{ item.image }}"
+                      class="rounded spec-image-styles cursor-pointer shadow"
+                      [title]="item.name"
+                    />
+                    <div class="spec-name">{{ item.name }}</div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="col-md-12 mb-4 mobile-padding-l2"
+                *ngIf="screenSize < 600"
+              >
+                <p class="card-font map-title">Locations</p>
+                <agm-map
+                  style="height: 40vh"
+                  [zoom]="zoom"
+                  [latitude]="lat"
+                  [longitude]="lng"
+                  [scrollwheel]="false"
+                  [styles]="styles"
+                >
+                  <agm-marker
+                    latitude="6.846841599999999"
+                    longitude="79.95208710000001"
+                    [iconUrl]="mapIcon"
+                  >
+                  </agm-marker>
+                  <agm-marker
+                    latitude="6.878514"
+                    longitude="79.93530200000001"
+                    [iconUrl]="mapIcon"
+                  >
+                  </agm-marker>
+                  <agm-marker
+                    latitude="6.894611099999999"
+                    longitude="79.879542"
+                    [iconUrl]="mapIcon"
+                  >
+                  </agm-marker>
+                  <agm-marker
+                    latitude="6.8677724"
+                    longitude="79.8770163"
+                    [iconUrl]="mapIcon"
+                  >
+                  </agm-marker>
+                </agm-map>
+              </div>
+            </div>
+            <div
+              class="col-md-12 mobile-padding space-mobile-padding"
+              *ngIf="screenSize > 600"
+            >
+              <p class="card-font map-title">Locations</p>
+              <agm-map
+                style="height: 70vh"
+                [zoom]="zoom"
+                [latitude]="lat"
+                [longitude]="lng"
+                [scrollwheel]="false"
+                [styles]="styles"
+              >
+                <agm-marker
+                  latitude="6.846841599999999"
+                  longitude="79.95208710000001"
+                  [iconUrl]="mapIcon"
+                >
+                </agm-marker>
+                <agm-marker
+                  latitude="6.878514"
+                  longitude="79.93530200000001"
+                  [iconUrl]="mapIcon"
+                >
+                </agm-marker>
+                <agm-marker
+                  latitude="6.894611099999999"
+                  longitude="79.879542"
+                  [iconUrl]="mapIcon"
+                >
+                </agm-marker>
+                <agm-marker
+                  latitude="6.8677724"
+                  longitude="79.8770163"
+                  [iconUrl]="mapIcon"
+                >
+                </agm-marker>
+                <!-- <agm-marker
+              *ngFor="let item of saleStoreArray"
+              [latitude]="item.latitude"
+              [longitude]="item.longitude"
+              [iconUrl]="item.main_store ? mani_store_mapIcon : store_mapIcon"
+              (click)="onMouseOver(infoWindow, $event)"
+            >
+              <agm-info-window [disableAutoPan]="false" #infoWindow>
+                <div style="background-color: #787878;" class="rounded p-1">
+                  <div class="mb-1">
+                    <strong style="color: #f1c034;">Name :</strong>
+                    <div style="color: white;">
+                      {{ item.name
+                      }}{{ item.main_store ? ' (main sale)' : ' (sale)' }}
+                    </div>
+                  </div>
+                  <div class="mb-1">
+                    <strong style="color: #f1c034;">Address :</strong>
+                    <div style="color: white;">{{ item.address }}</div>
+                  </div>
+                  <div class="mb-1">
+                    <strong style="color: #f1c034;">Phone :</strong>
+                    <div style="color: white;">{{ item.phone }}</div>
+                  </div>
+                  <div class="mb-1">
+                    <strong style="color: #f1c034;">Email :</strong>
+                    <div style="color: white;">{{ item.email }}</div>
+                  </div>
+                  <div
+                    class="mb-2 col-md-12 d-flex justify-content-end mobile-padding"
+                    *ngIf="isAdmin"
+                  >
+                    <button
+                      mat-icon-button
+                      class="p-0 m-0"
+                      (click)="viewSaleInfo(item.id)"
+                      matTooltip="Sale Info"
+                    >
+                      <mat-icon style="color: #fefefe;">info</mat-icon>
+                    </button>
+                  </div>
+                </div>
+              </agm-info-window>
+            </agm-marker> -->
+              </agm-map>
+            </div>
+            <div class="col-md-12 px-0">
+              <div class="col-md-12 my-5">
+                <div class="row">
+                  <div
+                    class="col-md-3 px-1 mb-3"
+                    *ngFor="let item of doctorsResult"
+                  >
+                    <div
+                      class="
+                        card
+                        card-lift--hover
+                        mt-0
+                        vehicle-card-style
+                        cursor-pointer
+                      "
+                      (click)="showDocInfo()"
+                    >
+                      <img
+                        *ngIf="item.image === undefined || item.image === null"
+                        src="https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg"
+                        class="image-expand-icon"
+                      />
+
+                      <img
+                        *ngIf="item.image !== undefined && item.image !== null"
+                        src="{{ imgPath }}600x500/{{ item.image }}"
+                        class="image-expand-icon"
+                      />
+
+                      <div class="card-body px-2 py-1">
+                        <div class="row pl-3">
+                          <div class="col-7 px-0">
+                            <p
+                              class="card-font"
+                              data-toggle="tooltip"
+                              [title]="item.full_name"
+                            >
+                              {{ item.full_name | wordLimit }}
+                            </p>
+                            <p class="card-sub-font">
+                              {{
+                                item.specializations === undefined ||
+                                item.specializations === null ||
+                                item.specializations.length === 0
+                                  ? "General Physician"
+                                  : item.specializations[0]["name"]
+                              }}
+                            </p>
+                          </div>
+                          <div class="col-5 px-0 pt-2">
+                            <button
+                              class="btn btn-icon btn-sm btn-primary"
+                              type="button"
+                              (click)="addBooking(item._id)"
+                            >
+                              <span
+                                class="btn-inner--icon"
+                                data-toggle="tooltip"
+                                title="Book now"
+                                ><i class="fa fa-stethoscope"></i
+                              ></span>
+                              <span
+                                *ngIf="screenSize > 800 || screenSize < 600"
+                                class="btn-inner--text"
+                                >Book</span
+                              >
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

@@ -1,0 +1,110 @@
+<nav
+  id="navbar-main"
+  class="navbar navbar-main navbar-expand-lg navbar-light py-1 nav-border"
+>
+  <div class="container">
+    <a class="navbar-brand mr-lg-5" [routerLink]="['/home']">
+      <img class="custom-logo" src="./assets/img/brand/dummy_logo.png" />
+    </a>
+
+    <div
+      class="d-flex flex-direction-row justify-content-center align-item-center"
+    >
+      <div class="input-group search-box">
+        <input
+          class="form-control py-0 by-0"
+          placeholder="Search for name, specialization or location"
+          type="text"
+          (keyup)="globleSearch($event.target.value)"
+        />
+        <div class="input-group-append">
+          <span class="input-group-text">
+            <img
+              src="assets/img/icons/navbar/loupe.png"
+              class="search-icon-styles"
+            />
+          </span>
+        </div>
+      </div>
+    </div>
+    <button
+      class="navbar-toggler"
+      type="button"
+      (click)="isCollapsed = !isCollapsed"
+      [attr.aria-expanded]="!isCollapsed"
+      aria-controls="navbar_global"
+    >
+      <img src="assets/img/icons/navbar/menu.svg" class="hamburger-icon" />
+    </button>
+    <div
+      class="navbar-collapse collapse"
+      id="navbar_global"
+      [ngbCollapse]="isCollapsed"
+    >
+      <div class="navbar-collapse-header">
+        <div class="row">
+          <div class="col-6 collapse-brand">
+            <a [routerLink]="['/home']">
+              <img src="./assets/img/brand/dummy_logo.png" />
+            </a>
+          </div>
+          <div class="col-6 collapse-close">
+            <button
+              type="button"
+              class="navbar-toggler"
+              (click)="isCollapsed = !isCollapsed"
+              [attr.aria-expanded]="!isCollapsed"
+              aria-controls="navbar_global"
+            >
+              <span></span>
+              <span></span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <ul class="navbar-nav align-items-lg-center ml-lg-auto">
+        <li class="nav-item">
+          <a class="nav-link nav-link-icon" [routerLink]="['/home/2']">
+            <img
+              src="assets/img/icons/navbar/home.png"
+              class="nav-icon-styles"
+            />
+            <span class="nav-link-inner--text d-lg-none">Home</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-link-icon" [routerLink]="['/home']">
+            <img
+              src="assets/img/icons/navbar/star.svg"
+              class="nav-icon-styles"
+            />
+            <span class="nav-link-inner--text d-lg-none"
+              >Emergency Booking</span
+            >
+          </a>
+        </li>
+
+        <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
+          <li class="nav-item dropdown">
+            <a class="nav-link no-caret" data-toggle="dropdown" role="button">
+              <img
+                src="assets/img/icons/navbar/menu.svg"
+                class="user-icon-styles"
+              />
+              <span class="nav-link-inner--text d-lg-none">Profile</span>
+            </a>
+            <div class="dropdown-menu">
+              <a [routerLink]="['/user-profile']" class="dropdown-item"
+                >Profile</a
+              >
+              <a (click)="logOut()" class="dropdown-item cursor-pointer"
+                >Logout</a
+              >
+            </div>
+          </li>
+        </ul>
+      </ul>
+    </div>
+  </div>
+</nav>

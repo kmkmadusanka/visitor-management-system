@@ -1,0 +1,19 @@
+.custom-background {
+  background-color: white;
+}
+
+.login-icon {
+  height: 7.8125rem;
+}
+
+@media screen and (max-width: 768px) {
+  .custom-padding {
+    padding-top: 15vh;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .custom-padding {
+    padding-top: 10vh;
+  }
+}
