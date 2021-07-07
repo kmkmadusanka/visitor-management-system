@@ -8,12 +8,10 @@ import { LayoutComponent } from './shared/layouts/layout.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 
-/* AuthGuard */
-import { AuthGuardService } from './infrastructure/auth-guard.service';
 
 /* Router List */
 export const AppRoutes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   {
@@ -28,9 +26,8 @@ export const AppRoutes: Routes = [
     children: [
       {
         path: 'home',
-        canActivate: [AuthGuardService],
         loadChildren: () =>
-          import('src/app/modules/home/home.module').then((m) => m.HomeModule),
+          import('src/app/modules/visitor-management/invitation.module').then((m) => m.VisitorHomeModule),
       },
     ],
   },

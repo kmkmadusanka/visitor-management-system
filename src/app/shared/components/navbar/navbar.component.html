@@ -4,29 +4,10 @@
 >
   <div class="container">
     <a class="navbar-brand mr-lg-5" [routerLink]="['/home']">
-      <img class="custom-logo" src="./assets/img/brand/dummy_logo.png" />
+      <img class="custom-logo" src="assets/img/brand/Griffith_University_logo.png" />
     </a>
 
-    <div
-      class="d-flex flex-direction-row justify-content-center align-item-center"
-    >
-      <div class="input-group search-box">
-        <input
-          class="form-control py-0 by-0"
-          placeholder="Search for name, specialization or location"
-          type="text"
-          (keyup)="globleSearch($event.target.value)"
-        />
-        <div class="input-group-append">
-          <span class="input-group-text">
-            <img
-              src="assets/img/icons/navbar/loupe.png"
-              class="search-icon-styles"
-            />
-          </span>
-        </div>
-      </div>
-    </div>
+    
     <button
       class="navbar-toggler"
       type="button"
@@ -45,7 +26,7 @@
         <div class="row">
           <div class="col-6 collapse-brand">
             <a [routerLink]="['/home']">
-              <img src="./assets/img/brand/dummy_logo.png" />
+              <img src="./assets/img/brand/Griffith_University_logo.png" />
             </a>
           </div>
           <div class="col-6 collapse-close">
@@ -64,46 +45,39 @@
       </div>
 
       <ul class="navbar-nav align-items-lg-center ml-lg-auto">
-        <li class="nav-item">
-          <a class="nav-link nav-link-icon" [routerLink]="['/home/2']">
+        <li class="nav-item" data-toggle="tooltip" title="Daily Activity">
+          <a class="nav-link nav-link-icon" [routerLink]="['/home/daily-activity']">
             <img
-              src="assets/img/icons/navbar/home.png"
+              src="assets/img/icons/navbar/calendar.svg"
               class="nav-icon-styles"
             />
-            <span class="nav-link-inner--text d-lg-none">Home</span>
+            <span class="nav-link-inner--text d-lg-none">Daily Activity</span>
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link nav-link-icon" [routerLink]="['/home']">
+        <li class="nav-item" data-toggle="tooltip" title="Hosts">
+          <a class="nav-link nav-link-icon" [routerLink]="['/home/hosts']">
             <img
-              src="assets/img/icons/navbar/star.svg"
+              src="assets/img/icons/navbar/group.svg"
               class="nav-icon-styles"
+              style="width: 32px;height: 32px;margin-bottom: 2px;"
             />
             <span class="nav-link-inner--text d-lg-none"
-              >Emergency Booking</span
+              >Hosts</span
             >
           </a>
         </li>
-
-        <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
-          <li class="nav-item dropdown">
-            <a class="nav-link no-caret" data-toggle="dropdown" role="button">
-              <img
-                src="assets/img/icons/navbar/menu.svg"
-                class="user-icon-styles"
-              />
-              <span class="nav-link-inner--text d-lg-none">Profile</span>
-            </a>
-            <div class="dropdown-menu">
-              <a [routerLink]="['/user-profile']" class="dropdown-item"
-                >Profile</a
-              >
-              <a (click)="logOut()" class="dropdown-item cursor-pointer"
-                >Logout</a
-              >
-            </div>
-          </li>
-        </ul>
+        <li class="nav-item" data-toggle="tooltip" title="Statics">
+          <a class="nav-link nav-link-icon" [routerLink]="['/home/statics']">
+            <img
+              src="assets/img/icons/navbar/bar-chart.svg"
+              class="nav-icon-styles"
+            />
+            <span class="nav-link-inner--text d-lg-none"
+              >Statics</span
+            >
+          </a>
+        </li>
+       
       </ul>
     </div>
   </div>
